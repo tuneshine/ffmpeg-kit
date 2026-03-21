@@ -17,7 +17,7 @@ fi
   --disable-fast-install \
   --disable-debug \
   --disable-deprecated \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 # WORKAROUND TO DISABLE BUILDING OF doc FOLDER (doc depends on c2man which is not available on all platforms)
 ${SED_INLINE} 's/ doc / /g' "${BASEDIR}"/src/"${LIB_NAME}"/Makefile || return 1

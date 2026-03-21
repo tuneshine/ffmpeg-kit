@@ -32,7 +32,7 @@ fi
 ./configure \
   --prefix="${LIB_INSTALL_PREFIX}" \
   ${ASM_OPTIONS} \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make || return 1
 

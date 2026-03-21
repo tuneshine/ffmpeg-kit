@@ -23,7 +23,7 @@ fi
   --enable-static \
   --disable-shared \
   --disable-fast-install \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make -j$(get_cpu_count) || return 1
 

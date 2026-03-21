@@ -37,7 +37,7 @@ overwrite_file "${FFMPEG_KIT_TMPDIR}"/source/config/config.sub "${BASEDIR}"/src/
   --disable-joystick \
   --disable-haptic \
   ${ASM_OPTIONS} \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make -j$(get_cpu_count) || return 1
 

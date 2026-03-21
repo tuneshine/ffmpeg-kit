@@ -22,7 +22,7 @@ fi
   --disable-maintainer-mode \
   --disable-doc \
   --disable-extra-programs \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make -j$(get_cpu_count) || return 1
 

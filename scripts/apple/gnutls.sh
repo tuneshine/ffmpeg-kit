@@ -54,7 +54,7 @@ fi
   --disable-tools \
   --disable-maintainer-mode \
   --disable-full-test-suite \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make -j$(get_cpu_count) || return 1
 

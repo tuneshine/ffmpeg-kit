@@ -20,6 +20,7 @@ set_toolchain_paths "${LIB_NAME}"
 
 # SET BUILD FLAGS
 HOST=$(get_host)
+BUILD="$(uname -m)-apple-darwin"
 export CFLAGS="$(get_cflags ${LIB_NAME}) -I${LIB_INSTALL_BASE}/ffmpeg/include"
 export CXXFLAGS=$(get_cxxflags ${LIB_NAME})
 export LDFLAGS="$(get_ldflags ${LIB_NAME}) -F${LIB_INSTALL_BASE}/ffmpeg/framework -framework Foundation -framework CoreVideo -framework libavdevice"
@@ -66,7 +67,7 @@ fi
   ${VIDEOTOOLBOX_SUPPORT_FLAG} \
   --disable-fast-install \
   --disable-maintainer-mode \
-  --host="${HOST}" 1>>"${BASEDIR}"/build.log 2>&1
+  --host="${HOST}" --build="${BUILD}" 1>>"${BASEDIR}"/build.log 2>&1
 
 # WORKAROUND FOR clang: warning: using sysroot for 'MacOSX' but targeting 'iPhone'
 ${SED_INLINE} "s|allow_undefined_flag -o|allow_undefined_flag -target $(get_target) -o|g" libtool 1>>"${BASEDIR}"/build.log 2>&1

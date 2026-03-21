@@ -23,7 +23,7 @@ fi
   --disable-rpath \
   --disable-libxml2 \
   --disable-docs \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 # DISABLE IOS TESTS with system() calls - system() is deprecated for IOS
 # 1. test-bz106632.c

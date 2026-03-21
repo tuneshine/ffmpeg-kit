@@ -17,7 +17,7 @@ fi
   --enable-static \
   --disable-shared \
   --disable-fast-install \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 # WORKAROUNDS
 git checkout ${BASEDIR}/src/${LIB_NAME}/libtool 1>>"${BASEDIR}"/build.log 2>&1

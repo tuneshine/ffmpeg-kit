@@ -39,7 +39,7 @@ fi
   --with-giflibdir="${LIB_INSTALL_BASE}/giflib/lib" \
   --with-tiffincludedir="${LIB_INSTALL_BASE}/tiff/include" \
   --with-tifflibdir="${LIB_INSTALL_BASE}/tiff/lib" \
-  --host="${HOST}" || return 1
+  --host="${HOST}" --build="${BUILD}" || return 1
 
 make -j$(get_cpu_count) || return 1
 

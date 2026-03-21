@@ -17,6 +17,7 @@ set_toolchain_paths "${LIB_NAME}"
 
 # SET BUILD FLAGS
 HOST=$(get_host)
+BUILD="$(uname -m)-apple-darwin"
 export CFLAGS=$(get_cflags "${LIB_NAME}")
 export CXXFLAGS=$(get_cxxflags "${LIB_NAME}")
 export LDFLAGS=$(get_ldflags "${LIB_NAME}")
