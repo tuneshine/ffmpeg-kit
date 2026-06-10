@@ -31,6 +31,12 @@ fi
 export ANDROID_SDK_ROOT
 export ANDROID_NDK_ROOT
 
+# Disable --enable-small so FFmpeg compiles full codec implementations.
+# The small build strips progressive/arithmetic JPEG support from the mjpeg
+# decoder (SOF markers 0xc5, 0xcb, 0xcd), which breaks photos re-encoded by
+# Google Photos.
+export FFMPEG_KIT_OPTIMIZED_FOR_SPEED=1
+
 echo "Using SDK: $ANDROID_SDK_ROOT"
 echo "Using NDK: $ANDROID_NDK_ROOT"
 echo ""

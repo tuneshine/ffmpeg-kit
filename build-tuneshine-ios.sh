@@ -20,6 +20,12 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
+# Disable --enable-small so FFmpeg compiles full codec implementations.
+# The small build strips progressive/arithmetic JPEG support from the mjpeg
+# decoder (SOF markers 0xc5, 0xcb, 0xcd), which breaks photos re-encoded by
+# Google Photos.
+export FFMPEG_KIT_OPTIMIZED_FOR_SPEED=1
+
 # Ensure autoconf cross-compilation detection works on Apple Silicon.
 # Without this, arm64 host ≈ arm64 build causes configure to hang.
 export BUILD="$(uname -m)-apple-darwin"
